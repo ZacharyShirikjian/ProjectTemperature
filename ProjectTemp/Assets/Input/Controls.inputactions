@@ -6,23 +6,86 @@
             "id": "b11b8da0-38ff-47be-8e76-879341dca457",
             "actions": [
                 {
-                    "name": "Shoot",
-                    "type": "PassThrough",
-                    "id": "21ff37a6-71f8-414a-8233-82d3d4b9579b",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "27aeba0d-6521-4d05-b7ba-fc26398e6d44",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwitchTemp",
+                    "type": "Button",
+                    "id": "fbb34012-b3d3-47e9-a4fb-0b4791489063",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "28df1a49-05a5-4742-abbe-fe90fb00926c",
-                    "path": "<Mouse>/position",
+                    "name": "WASD",
+                    "id": "63a27c73-0789-482d-81dd-462438024982",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard/Mouse",
-                    "action": "Shoot",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "131a7932-238c-494f-8aa6-38d5d43a9acf",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a51717f8-f6b4-4700-9b14-3eed3a085c19",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a8dcce4d-9df0-4f2e-a481-35a91a83a62f",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "38e70614-771f-46da-b469-6e78b5858a5e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e62e36e5-a727-457c-8097-85fd0f26f467",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SwitchTemp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -39,17 +102,137 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "StartGame",
+                    "type": "Button",
+                    "id": "41507731-3111-42c6-ad53-d1cfb8ccdc9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "ba765e59-90db-4fdb-9cf3-88e77bde5deb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Navigate",
+                    "type": "Button",
+                    "id": "b8f0327d-ead1-4f9b-a8f7-e053d500e225",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "9f6f83e1-fe68-453d-ab75-65bc3b1244c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "98acbf68-0030-438d-b31d-2e6ac60f3c05",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/backspace",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard/Mouse",
+                    "groups": "Keyboard",
                     "action": "CloseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "986d5d67-fdd3-4502-b8c8-920eafe8fa61",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a08faf1c-c446-4bd6-87d6-0568269430be",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "d6dc7e77-858c-420e-9c12-d6ae993037d5",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "a2f1023a-1b5f-4a6f-ab09-160d6be228f1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "6cbe8f2c-2013-404f-81c8-1acb4d6601c3",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e263c836-e7bc-4ac2-b3f1-ae80db472232",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "52116aad-2af6-427c-aed1-6ed631d5d90f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "489f41fc-61d5-4169-8b4e-75b36b1e0d61",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -58,8 +241,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Keyboard/Mouse",
-            "bindingGroup": "Keyboard/Mouse",
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
             "devices": []
         }
     ]

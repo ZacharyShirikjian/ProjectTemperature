@@ -5,30 +5,33 @@ public class InputManager : MonoBehaviour
 {
     Controls controls;
     Controls.MenusActions menu;
-  //  private PlayerController playCon;
+    Controls.PlayerActions playerActions;
 
     Vector2 mousePos;
 
     Vector2 inputVector;
     Vector2 mouseInput;
 
-    [SerializeField] private TitleScreen titleScript;
+    [SerializeField] private GameManager gm;
+    [SerializeField] private PlayerController playCon;
     private void Start()
     {
-       // playCon = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+       playCon = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Awake()
     {
         controls = new Controls();
         menu = controls.Menus;
+        playerActions = controls.Player;
 
-        //movement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
-        //movement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+        //PLAYER//
+        playerActions.Move.performed += ctx => inputVector = ctx.ReadValue<Vector2>();
+        playerActions.SwitchTemp.performed += _ => playCon.SwitchTemperature();
 
         //MENU//
-        menu.CloseMenu.performed += ctx => titleScript.CloseSettings();
-        //menu.Pause.performed += _ => uiScript.PauseGame();
+        menu.CloseMenu.performed += ctx => gm.CloseMenu();
+        menu.Pause.performed += _ => gm.PauseGame();
         //movement.Interact.performed += ctx => playInteract.Interact();
         //menu.SwitchPage.performed += ctx => uiScript.SwitchInputPage();
 
@@ -37,6 +40,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         //mousePos = Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
+        //playCon.ReceiveInput(inputVector);
 
     }
 
