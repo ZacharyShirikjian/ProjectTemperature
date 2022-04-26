@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite hotSprite;
     [SerializeField] private Sprite coldSprite;
 
-    CharacterController controller;
+    //CharacterController controller;
     private GameManager gm;
 
     private void Awake()
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         lastDir = true;
         rb2d = GetComponent<Rigidbody2D>();
-        controller = GetComponent<CharacterController>();
-        controller.detectCollisions = true;
+        //controller = GetComponent<CharacterController>();
+        ////controller.detectCollisions = true;
     }
 
 
@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //rb2d.MovePosition(rb2d.position + inputVector * speed * Time.fixedDeltaTime);
-        controller.Move(transform.right * inputVector * speed * Time.deltaTime);
+        transform.position += transform.right * inputVector.x * speed * Time.deltaTime;
+        //controller.Move(transform.right * inputVector * speed * Time.deltaTime);
         if (inputVector.x < 0)
         {
             sprite.flipX = true;
@@ -69,14 +69,21 @@ public class PlayerController : MonoBehaviour
             Debug.Log("PLAYER IS NOW HOT");
             sprite.sprite = hotSprite;
             gm.curTemp = 60.0;
-            controller.detectCollisions = false;
+            //controller.detectCollisions = false;
         }
         else if(gm.curTemp > 30)
         {
             Debug.Log("PLAYER IS NOW COLD");
             sprite.sprite = coldSprite;
             gm.curTemp = 30.0f;
-            controller.detectCollisions = true;
+            //controller.detectCollisions = true;
+        }
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.CompareTag("IceCube"))
+        {
+            Debug.Log("aopseihfasdiofhjsdafo");
         }
     }
 }
