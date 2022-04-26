@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     //REFERENCES//
 
     //Pause Panel//
     [SerializeField] private GameObject pausePanel;
-
     //Reference to Player//
     [SerializeField] private GameObject player;
-
+    [SerializeField] private Slider Thermometer;
+    public TextMeshProUGUI DegreeText;
     //VARIABLES//
 
     //Checks if game's paused
@@ -28,12 +30,14 @@ public class GameManager : MonoBehaviour
 
         paused = false;
         pausePanel.SetActive(false);
+        DegreeText.SetText(curTemp.ToString() + "°");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        DegreeText.SetText(curTemp.ToString() + "°");
+        Thermometer.value = (int) curTemp;
     }
 
     //Closes a menu//

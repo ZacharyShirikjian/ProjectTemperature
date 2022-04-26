@@ -78,12 +78,4 @@ public class PlayerController : MonoBehaviour
             gm.curTemp = 30.0f;
             //controller.detectCollisions = true;
         }
-    }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if(hit.gameObject.CompareTag("IceCube"))
-        {
-            Debug.Log("aopseihfasdiofhjsdafo");
-        }
-    }
-}
+    }}
