@@ -37,11 +37,13 @@ public class InputManager : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //mousePos = Camera.main.ScreenToViewportPoint(Mouse.current.position.ReadValue());
         //playCon.ReceiveInput(inputVector);
-
+        float horizontal = playerActions.Move.ReadValue<Vector2>().x;
+        Vector2 move = new Vector2(horizontal, 0);
+        playCon.ReceiveInput(move);
     }
 
     private void OnEnable()

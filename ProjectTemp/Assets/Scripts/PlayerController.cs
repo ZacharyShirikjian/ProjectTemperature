@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Sprite hotSprite;
     [SerializeField] private Sprite coldSprite;
 
+    CharacterController controller;
     private GameManager gm;
 
     private void Awake()
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         lastDir = true;
         rb2d = GetComponent<Rigidbody2D>();
+        controller = GetComponent<CharacterController>();
     }
 
 
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //rb2d.MovePosition(rb2d.position + inputVector * speed * Time.fixedDeltaTime);
-        rb2d.AddForce(inputVector * speed);
+        controller.Move(transform.right * inputVector * speed * Time.deltaTime);
         if (inputVector.x < 0)
         {
             sprite.flipX = true;
