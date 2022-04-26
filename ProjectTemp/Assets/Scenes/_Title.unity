@@ -1810,7 +1810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1396117334}
-  titleTrack: {fileID: 8300000, guid: ffba28eaf85d79449a47668a2da25235, type: 3}
+  titleTrack: {fileID: 8300000, guid: ac2e82d33092baa41b7a7bf3b5228dd5, type: 3}
+  tutorialTrack: {fileID: 8300000, guid: ffba28eaf85d79449a47668a2da25235, type: 3}
   gameTrack: {fileID: 8300000, guid: 1dc4480a6eb929f4f878f3be573e7d9f, type: 3}
 --- !u!82 &1396117334
 AudioSource:

@@ -10,11 +10,16 @@ public class IceCube : MonoBehaviour
     private BoxCollider2D collision;
     private GameManager gm;
     private BoxCollider2D collider;
+    //private AudioSource sfxSource;
+   // private AudioClip melt; 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //sfxSource = GameObject.Find("SFXManager").GetComponent<AudioSource>();
+        //IceCube.sfxSource = 
+        //melt = sfx.FireSpell;
         collider = GetComponent<BoxCollider2D>();
     }
 
@@ -32,6 +37,7 @@ public class IceCube : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            //sfxSource.PlayClipAtPoint(melt, transform.position);
             Destroy(this.gameObject);
             player.GetComponent<PlayerController>().canSwitch = false;
         }

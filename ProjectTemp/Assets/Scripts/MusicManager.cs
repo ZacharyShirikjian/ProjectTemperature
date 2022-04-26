@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour
     //Ref to this Audio Source
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip titleTrack;
+    [SerializeField] private AudioClip tutorialTrack;
     [SerializeField] private AudioClip gameTrack;
 
     //Instance of this script, used on DontDestroyOnLoad
@@ -32,6 +33,11 @@ public class MusicManager : MonoBehaviour
         if (song == "Title")
         {
             source.clip = titleTrack;
+            source.Play();
+        }
+        else if (song == "Tutorial")
+        {
+            source.clip = tutorialTrack;
             source.Play();
         }
 

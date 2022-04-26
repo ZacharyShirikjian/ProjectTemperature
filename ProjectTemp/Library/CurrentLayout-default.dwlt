@@ -8,18 +8,18 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
+    x: -1920
     y: 43
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -100,10 +100,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 911, y: 442}
-  m_MaxSize: {x: 22006, y: 10021}
+  m_MinSize: {x: 908, y: 421}
+  m_MaxSize: {x: 22003, y: 10021}
   vertical: 0
-  controlID: 117
+  controlID: 210
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,10 +146,10 @@ MonoBehaviour:
     y: 0
     width: 880
     height: 947
-  m_MinSize: {x: 201, y: 442}
-  m_MaxSize: {x: 4001, y: 8042}
+  m_MinSize: {x: 201, y: 421}
+  m_MaxSize: {x: 4001, y: 8021}
   vertical: 1
-  controlID: 18
+  controlID: 189
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 880
     y: 0
-    width: 296
+    width: 288
     height: 947
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
@@ -191,9 +191,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1176
+    x: 1168
     y: 0
-    width: 340
+    width: 348
     height: 947
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -274,8 +274,8 @@ MonoBehaviour:
     y: 484
     width: 880
     height: 463
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -301,7 +301,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: -1920
     y: 73
     width: 879
     height: 463
@@ -330,9 +330,9 @@ MonoBehaviour:
     m_SearchString: 
   m_ActionsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4cf78fbe
-    m_LastClickedID: -1097861300
-    m_ExpandedIDs: 6911ada2c1ca6cb44cf78fbe8db78dbf777607d249cae40edc342b22fff24b3198076043
+    m_SelectedIDs: fb52f5a2
+    m_LastClickedID: -1560980741
+    m_ExpandedIDs: 6911ada2c1ca6cb44cf78fbe8db78dbf777607d249cae40e7bbcb021dc342b22fff24b3198076043
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -409,6 +409,10 @@ MonoBehaviour:
       {\n                    \"name\": \"SwitchTemp\",\n                    \"type\":
       \"Button\",\n                    \"id\": \"fbb34012-b3d3-47e9-a4fb-0b4791489063\",\n                   
       \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\"\n                },\n                {\n                   
+      \"name\": \"ExitDoor\",\n                    \"type\": \"Button\",\n                   
+      \"id\": \"d14ff9d6-aeff-453e-beaf-5e9dbc255193\",\n                    \"expectedControlType\":
+      \"Button\",\n                    \"processors\": \"\",\n                   
       \"interactions\": \"\"\n                }\n            ],\n            \"bindings\":
       [\n                {\n                    \"name\": \"WASD\",\n                   
       \"id\": \"63a27c73-0789-482d-81dd-462438024982\",\n                    \"path\":
@@ -440,6 +444,11 @@ MonoBehaviour:
       \"path\": \"<Keyboard>/space\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"Keyboard\",\n                   
       \"action\": \"SwitchTemp\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": false\n                },\n                {\n                   
+      \"name\": \"\",\n                    \"id\": \"21291ce0-62dc-4e1a-8004-e1f4a356ff01\",\n                   
+      \"path\": \"<Keyboard>/e\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"Keyboard\",\n                   
+      \"action\": \"ExitDoor\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                }\n            ]\n        },\n       
       {\n            \"name\": \"Menus\",\n            \"id\": \"a28abb53-e2c1-495f-ae5e-71f8401e00f3\",\n           
       \"actions\": [\n                {\n                    \"name\": \"CloseMenu\",\n                   
@@ -549,17 +558,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 880
+    x: -1040
     y: 73
-    width: 294
+    width: 286
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 14760000
       m_LastClickedID: 0
-      m_ExpandedIDs: 16d2ffff26d2ffff38d2ffff14edffff24edffff36edffff18f4ffff3cfbffffd844000062450000
+      m_ExpandedIDs: fcf2ffff7af3ffff8cf3ffff80faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -603,7 +612,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1516
+    x: -404
     y: 73
     width: 403
     height: 926
@@ -640,9 +649,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1176
+    x: -752
     y: 73
-    width: 338
+    width: 346
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
@@ -658,7 +667,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Audio
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
@@ -673,7 +682,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 10420000
     m_LastClickedID: 16912
-    m_ExpandedIDs: 0000000086450000ca450000cc450000ce450000d0450000d2450000d4450000
+    m_ExpandedIDs: 000000001644000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -701,21 +710,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000086450000ca450000cc450000ce450000d0450000d2450000d4450000
+    m_ExpandedIDs: ffffffff0000000016440000184400001c4400002844000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: DestroyByBounds
-      m_OriginalName: DestroyByBounds
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 32128
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -777,7 +786,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: -1920
     y: 557
     width: 879
     height: 442
@@ -866,7 +875,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
+    x: -1920
     y: 73
     width: 879
     height: 463
@@ -882,9 +891,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 10.235615, y: -9.3256855, z: -8.847782}
+    m_Target: {x: 35.898098, y: -2.899558, z: -6.874676}
     speed: 2
-    m_Value: {x: 10.235615, y: -9.3256855, z: -8.847782}
+    m_Value: {x: 35.898098, y: -2.899558, z: -6.874676}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -935,9 +944,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.972662
+    m_Target: 3.3285325
     speed: 2
-    m_Value: 13.972662
+    m_Value: 3.3285325
   m_Ortho:
     m_Target: 1
     speed: 2

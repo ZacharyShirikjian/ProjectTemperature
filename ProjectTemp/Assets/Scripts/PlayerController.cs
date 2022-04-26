@@ -22,15 +22,17 @@ public class PlayerController : MonoBehaviour
     private GameManager gm;
 
     public bool canSwitch = true; //set to false if player is gonna die
-
+    public bool canExit = false;
+    private SFXManager sfx; 
     private void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         sprite = GetComponent<SpriteRenderer>();
+        rb2d = GetComponent<Rigidbody2D>();
+        sfx = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         speed = 5f;
         canMove = true;
         lastDir = true;
-        rb2d = GetComponent<Rigidbody2D>();
     }
 
 
@@ -80,8 +82,13 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    //Gets called when pressing ENTER at the door when a player is near it 
     public void ExitDoor()
     {
-
+        if(canExit)
+        {
+            gm.LevelComplete();
+        }
     }
 }
