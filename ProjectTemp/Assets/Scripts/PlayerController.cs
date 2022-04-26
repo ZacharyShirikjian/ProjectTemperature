@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Sprite hotSprite;
     [SerializeField] private Sprite coldSprite;
-
-    //CharacterController controller;
     private GameManager gm;
+
+    public bool canSwitch = true; //set to false if player is gonna die
 
     private void Awake()
     {
@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         lastDir = true;
         rb2d = GetComponent<Rigidbody2D>();
-        //controller = GetComponent<CharacterController>();
-        ////controller.detectCollisions = true;
     }
 
 
@@ -64,18 +62,26 @@ public class PlayerController : MonoBehaviour
     public void SwitchTemperature()
     {
         Debug.Log("SWITCHING TEMPERATURE!!!");
-        if(gm.curTemp <= 32.0)
+        if (canSwitch)
         {
-            Debug.Log("PLAYER IS NOW HOT");
-            sprite.sprite = hotSprite;
-            gm.curTemp = 60.0;
-            //controller.detectCollisions = false;
+            if (gm.curTemp <= 32.0)
+            {
+                Debug.Log("PLAYER IS NOW HOT");
+                sprite.sprite = hotSprite;
+                gm.curTemp = 90.0;
+                gm.SwitchTempSprite();
+            }
+            else if (gm.curTemp > 32)
+            {
+                Debug.Log("PLAYER IS NOW COLD");
+                sprite.sprite = coldSprite;
+                gm.curTemp = 30.0f;
+                gm.SwitchTempSprite();
+            }
         }
-        else if(gm.curTemp > 32)
-        {
-            Debug.Log("PLAYER IS NOW COLD");
-            sprite.sprite = coldSprite;
-            gm.curTemp = 30.0f;
-            //controller.detectCollisions = true;
-        }
-    }}
+    }
+    public void ExitDoor()
+    {
+
+    }
+}

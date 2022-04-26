@@ -30,7 +30,7 @@ public class FrozenWater : MonoBehaviour
             collider.isTrigger = false;
             sprite.sprite = coldSprite;
         }
-        else if(gm.curTemp >= 60.0)
+        else if(gm.curTemp >= 90.0)
         {
             Debug.Log("MELTED WATER");
             collider.isTrigger = true;

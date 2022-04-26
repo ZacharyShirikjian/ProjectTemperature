@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     //Reference to Player//
     [SerializeField] private GameObject player;
-    [SerializeField] private Slider Thermometer;
+    [SerializeField] private Image Thermometer;
+    [SerializeField] private Sprite coldTemp;
+    [SerializeField] private Sprite hotTemp;
     public TextMeshProUGUI DegreeText;
     //VARIABLES//
 
@@ -31,15 +33,26 @@ public class GameManager : MonoBehaviour
         paused = false;
         pausePanel.SetActive(false);
         DegreeText.SetText(curTemp.ToString() + "°");
+        Thermometer.sprite = coldTemp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        DegreeText.SetText(curTemp.ToString() + "°");
-        Thermometer.value = (int) curTemp;
+        DegreeText.SetText(curTemp.ToString() + "°F");
     }
 
+    public void SwitchTempSprite()
+    {
+        if(curTemp <= 32.0)
+        {
+            Thermometer.sprite = coldTemp;
+        }
+        else if(curTemp >= 90.0)
+        {
+            Thermometer.sprite = hotTemp;
+        }
+    }
     //Closes a menu//
     public void CloseMenu()
     {

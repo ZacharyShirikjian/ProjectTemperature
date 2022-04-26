@@ -28,6 +28,7 @@ public class InputManager : MonoBehaviour
         //PLAYER//
         playerActions.Move.performed += ctx => inputVector = ctx.ReadValue<Vector2>();
         playerActions.SwitchTemp.performed += _ => playCon.SwitchTemperature();
+        playerActions.ExitDoor.performed += _ => playCon.Exit();
 
         //MENU//
         menu.CloseMenu.performed += ctx => gm.CloseMenu();

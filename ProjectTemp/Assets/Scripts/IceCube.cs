@@ -21,7 +21,7 @@ public class IceCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gm.curTemp >= 60.0)
+        if(gm.curTemp >= 90.0)
         {
             Debug.Log("CAN BE MELTED");
             collider.isTrigger = true;
@@ -33,6 +33,20 @@ public class IceCube : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
+            player.GetComponent<PlayerController>().canSwitch = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        player.GetComponent<PlayerController>().canSwitch = true;
+    }
+
+    private void OnDestroy()
+    {
+        if(player != null)
+        {
+            player.GetComponent<PlayerController>().canSwitch = true;
         }
     }
 

@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitDoor"",
+                    ""type"": ""Button"",
+                    ""id"": ""d14ff9d6-aeff-453e-beaf-5e9dbc255193"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -99,6 +107,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""SwitchTemp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21291ce0-62dc-4e1a-8004-e1f4a356ff01"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ExitDoor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -264,6 +283,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_SwitchTemp = m_Player.FindAction("SwitchTemp", throwIfNotFound: true);
+        m_Player_ExitDoor = m_Player.FindAction("ExitDoor", throwIfNotFound: true);
         // Menus
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_CloseMenu = m_Menus.FindAction("CloseMenu", throwIfNotFound: true);
@@ -322,12 +342,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_SwitchTemp;
+    private readonly InputAction m_Player_ExitDoor;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @SwitchTemp => m_Wrapper.m_Player_SwitchTemp;
+        public InputAction @ExitDoor => m_Wrapper.m_Player_ExitDoor;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -343,6 +365,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SwitchTemp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchTemp;
                 @SwitchTemp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchTemp;
                 @SwitchTemp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchTemp;
+                @ExitDoor.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitDoor;
+                @ExitDoor.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitDoor;
+                @ExitDoor.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExitDoor;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -353,6 +378,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SwitchTemp.started += instance.OnSwitchTemp;
                 @SwitchTemp.performed += instance.OnSwitchTemp;
                 @SwitchTemp.canceled += instance.OnSwitchTemp;
+                @ExitDoor.started += instance.OnExitDoor;
+                @ExitDoor.performed += instance.OnExitDoor;
+                @ExitDoor.canceled += instance.OnExitDoor;
             }
         }
     }
@@ -435,6 +463,7 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSwitchTemp(InputAction.CallbackContext context);
+        void OnExitDoor(InputAction.CallbackContext context);
     }
     public interface IMenusActions
     {
