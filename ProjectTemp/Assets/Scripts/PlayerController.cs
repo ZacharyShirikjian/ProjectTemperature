@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         lastDir = true;
         rb2d = GetComponent<Rigidbody2D>();
         controller = GetComponent<CharacterController>();
+        controller.detectCollisions = true;
     }
 
 
@@ -68,12 +69,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log("PLAYER IS NOW HOT");
             sprite.sprite = hotSprite;
             gm.curTemp = 60.0;
+            controller.detectCollisions = false;
         }
         else if(gm.curTemp > 30)
         {
             Debug.Log("PLAYER IS NOW COLD");
             sprite.sprite = coldSprite;
             gm.curTemp = 30.0f;
+            controller.detectCollisions = true;
         }
     }
 }
