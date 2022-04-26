@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     //Checks if game's paused
     public bool paused = false;
 
-    public double curTemp = 30.0f; 
+    public double curTemp = 32.0f; 
     // Start is called before the first frame update
     void Start()
     {

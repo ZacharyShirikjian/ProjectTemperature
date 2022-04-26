@@ -64,14 +64,14 @@ public class PlayerController : MonoBehaviour
     public void SwitchTemperature()
     {
         Debug.Log("SWITCHING TEMPERATURE!!!");
-        if(gm.curTemp <= 30.0)
+        if(gm.curTemp <= 32.0)
         {
             Debug.Log("PLAYER IS NOW HOT");
             sprite.sprite = hotSprite;
             gm.curTemp = 60.0;
             //controller.detectCollisions = false;
         }
-        else if(gm.curTemp > 30)
+        else if(gm.curTemp > 32)
         {
             Debug.Log("PLAYER IS NOW COLD");
             sprite.sprite = coldSprite;
