@@ -140,9 +140,9 @@
                 },
                 {
                     "name": "Navigate",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "b8f0327d-ead1-4f9b-a8f7-e053d500e225",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },

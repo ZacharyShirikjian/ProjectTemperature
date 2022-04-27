@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     //REFERENCES//
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     //Reference to Player//
     [SerializeField] private GameObject player;
+    private PlayerController playControl;
     [SerializeField] private Image Thermometer;
     [SerializeField] private Sprite coldTemp;
     [SerializeField] private Sprite hotTemp;
@@ -27,9 +29,16 @@ public class GameManager : MonoBehaviour
     //AUDIO//
     private SFXManager sfx;
     private MusicManager musicManager;
+
+    //Reference to EventSystem//
+    [SerializeField] private GameObject cursor;
+
+    public EventSystem eventSystem;
+
     // Start is called before the first frame update
     void Start()
     {
+        playControl = player.GetComponent<PlayerController>();
         musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
         sfx = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         InputSystem.DisableDevice(Mouse.current);
@@ -37,6 +46,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        cursor.SetActive(false);
         paused = false;
         pausePanel.SetActive(false);
         DegreeText.SetText(curTemp.ToString() + "°");
@@ -89,19 +99,26 @@ public class GameManager : MonoBehaviour
         {
             pausePanel.SetActive(false);
             paused = false;
+            cursor.SetActive(false);
+            playControl.canMove = true;
         }
 
         else if(!paused)
         {
             pausePanel.SetActive(true);
             paused = true;
+            playControl.canMove = false;
+            cursor.SetActive(true);
+            eventSystem.SetSelectedGameObject(pausePanel.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject);
+            Debug.Log(eventSystem.currentSelectedGameObject);
+
         }
     }
 
     //GETS CALLED WHEN PLAYER REACHES EXIT DOOR//
     public void LevelComplete()
     {
-        Invoke("LoadSceneAfterDelay", 0.5f);
+        Invoke("LoadScene", 0.5f);
         sfx.GetComponent<AudioSource>().PlayOneShot(sfx.levelComplete);
     }
 
