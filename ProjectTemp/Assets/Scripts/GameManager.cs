@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public EventSystem eventSystem;
 
+    public GameObject curButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
             paused = false;
             cursor.SetActive(false);
             playControl.canMove = true;
+            playControl.canSwitch = true;
         }
 
         else if(!paused)
@@ -109,7 +111,8 @@ public class GameManager : MonoBehaviour
             paused = true;
             playControl.canMove = false;
             cursor.SetActive(true);
-            eventSystem.SetSelectedGameObject(pausePanel.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject);
+            eventSystem.SetSelectedGameObject(curButton);
+            playControl.canSwitch = false;
             Debug.Log(eventSystem.currentSelectedGameObject);
 
         }
@@ -122,6 +125,26 @@ public class GameManager : MonoBehaviour
         sfx.GetComponent<AudioSource>().PlayOneShot(sfx.levelComplete);
     }
 
+
+    //Called from QUIT on PauseMenu
+    public void ReturnToTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void RestartGame()
+    {
+        if (SceneManager.GetActiveScene().name == "_TutorialLevel")
+        {
+            SceneManager.LoadScene(1);
+
+        }
+
+        else if (SceneManager.GetActiveScene().name == "_Gameplay")
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
     void LoadScene()
     {
         if (SceneManager.GetActiveScene().name == "_TutorialLevel")

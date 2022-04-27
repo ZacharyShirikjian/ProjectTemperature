@@ -44,18 +44,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += transform.right * inputVector.x * speed * Time.deltaTime;
-        //controller.Move(transform.right * inputVector * speed * Time.deltaTime);
-        if (inputVector.x < 0)
+        if(canMove)
         {
-            sprite.flipX = true;
-            lastDir = true;
+            transform.position += transform.right * inputVector.x * speed * Time.deltaTime;
+            //controller.Move(transform.right * inputVector * speed * Time.deltaTime);
+            if (inputVector.x < 0)
+            {
+                sprite.flipX = true;
+                lastDir = true;
+            }
+            else if (inputVector.x > 0)
+            {
+                sprite.flipX = false;
+                lastDir = false;
+            }
+
         }
-        else if (inputVector.x > 0)
-        {
-            sprite.flipX = false;
-            lastDir = false;
-        }
+
         //else if(inputVector == 0.0)
         //{
         //    sprite.flipX = lastDir;
